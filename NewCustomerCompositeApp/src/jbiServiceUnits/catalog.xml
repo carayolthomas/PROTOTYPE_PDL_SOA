@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="DWHWebApplication/wsdl/DWHWebServiceService.wsdl" uri="NewCustomerProcessBpelModule/src/_references/_projects/DWHWebApplication/src/conf/wsdl/DWHWebServiceService.wsdl"/>
+    <system systemId="DWHWebServiceService_schema1.xsd" uri="NewCustomerProcessBpelModule/src/_references/_projects/DWHWebApplication/src/conf/wsdl/DWHWebServiceService_schema1.xsd"/>
+</catalog>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="StartProcessWSDL" targetNamespace="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartProcessWSDL"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartProcessWSDL" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types/>
+    <message name="StartProcessWSDLOperationRequest">
+        <part name="part1" type="xsd:string"/>
+    </message>
+    <message name="StartProcessWSDLOperationResponse">
+        <part name="part1" type="xsd:string"/>
+    </message>
+    <portType name="StartProcessWSDLPortType">
+        <operation name="StartProcessWSDLOperation">
+            <input name="input1" message="tns:StartProcessWSDLOperationRequest"/>
+            <output name="output1" message="tns:StartProcessWSDLOperationResponse"/>
+        </operation>
+    </portType>
+    <binding name="StartProcessWSDLBinding" type="tns:StartProcessWSDLPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="StartProcessWSDLOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartProcessWSDL"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartProcessWSDL"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="StartProcessWSDLService">
+        <port name="StartProcessWSDLPort" binding="tns:StartProcessWSDLBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/StartProcessWSDLService/StartProcessWSDLPort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="StartProcessWSDL">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="StartProcessWSDLPortTypeRole" portType="tns:StartProcessWSDLPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
+

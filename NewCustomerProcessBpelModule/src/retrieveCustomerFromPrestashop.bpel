@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="retrieveCustomerFromPrestashop"
+    targetNamespace="http://enterprise.netbeans.org/bpel/NewCustomerProcessBpelModule/retrieveCustomerFromPrestashop"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/NewCustomerProcessBpelModule/retrieveCustomerFromPrestashop"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2">
+    <import namespace="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL" location="StartRetrieveWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/CustomersToUpdateWSWrapper" location="CustomersToUpdateWSWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://webservices/" location="CustomersToUpdateWS.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="PartnerLink2" xmlns:tns="http://enterprise.netbeans.org/bpel/CustomersToUpdateWSWrapper" partnerLinkType="tns:CustomersToUpdateWSLinkType" partnerRole="CustomersToUpdateWSRole"/>
+        <partnerLink name="PartnerLink1" xmlns:tns="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL" partnerLinkType="tns:StartRetrieveWSDL" myRole="StartRetrieveWSDLPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="TestOut" xmlns:tns="http://webservices/" messageType="tns:testResponse"/>
+        <variable name="TestIn" xmlns:tns="http://webservices/" messageType="tns:test"/>
+        <variable name="StartRetrieveWSDLOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL" messageType="tns:StartRetrieveWSDLOperationResponse"/>
+        <variable name="StartRetrieveWSDLOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL" messageType="tns:StartRetrieveWSDLOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="PartnerLink1" operation="StartRetrieveWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL" portType="tns:StartRetrieveWSDLPortType" variable="StartRetrieveWSDLOperationIn"/>
+        <assign name="Assign1">
+            <copy>
+                <from variable="StartRetrieveWSDLOperationIn" part="part1"/>
+                <to variable="TestIn" part="parameters"/>
+            </copy>
+        </assign>
+        <invoke name="Invoke1" partnerLink="PartnerLink2" operation="test" xmlns:tns="http://webservices/" portType="tns:CustomersToUpdateWS" inputVariable="TestIn" outputVariable="TestOut"/>
+        <assign name="Assign2">
+            <copy>
+                <from>$TestOut.parameters/return</from>
+                <to variable="StartRetrieveWSDLOperationOut" part="part1"/>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="PartnerLink1" operation="StartRetrieveWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL" portType="tns:StartRetrieveWSDLPortType" variable="StartRetrieveWSDLOperationOut"/>
+    </sequence>
+</process>
+

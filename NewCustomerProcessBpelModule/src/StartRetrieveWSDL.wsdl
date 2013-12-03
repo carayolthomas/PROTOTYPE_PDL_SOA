@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="StartRetrieveWSDL" targetNamespace="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types/>
+    <message name="StartRetrieveWSDLOperationRequest">
+        <part name="part1" type="xsd:string"/>
+    </message>
+    <message name="StartRetrieveWSDLOperationResponse">
+        <part name="part1" type="xsd:string"/>
+    </message>
+    <portType name="StartRetrieveWSDLPortType">
+        <operation name="StartRetrieveWSDLOperation">
+            <input name="input1" message="tns:StartRetrieveWSDLOperationRequest"/>
+            <output name="output1" message="tns:StartRetrieveWSDLOperationResponse"/>
+        </operation>
+    </portType>
+    <binding name="StartRetrieveWSDLBinding" type="tns:StartRetrieveWSDLPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="StartRetrieveWSDLOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/NewCustomerProcessBpelModule/StartRetrieveWSDL"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="StartRetrieveWSDLService">
+        <port name="StartRetrieveWSDLPort" binding="tns:StartRetrieveWSDLBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/StartRetrieveWSDLService/StartRetrieveWSDLPort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="StartRetrieveWSDL">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="StartRetrieveWSDLPortTypeRole" portType="tns:StartRetrieveWSDLPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
+
+

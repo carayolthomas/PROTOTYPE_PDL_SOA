@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CustomersToUpdateWSWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/CustomersToUpdateWSWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/CustomersToUpdateWSWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="http://webservices/">
+    <import location="CustomersToUpdateWS.wsdl" namespace="http://webservices/"/>
+    <plnk:partnerLinkType name="CustomersToUpdateWSLinkType">
+        <plnk:role name="CustomersToUpdateWSRole" portType="ns:CustomersToUpdateWS"/>
+    </plnk:partnerLinkType>
+</definitions>
+

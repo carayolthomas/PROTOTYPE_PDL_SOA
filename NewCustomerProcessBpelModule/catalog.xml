@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
+    <system systemId="DWHWebApplication/wsdl/DWHWebServiceService.wsdl" uri="nb-uri:DWHWebApplication#src/conf/wsdl/DWHWebServiceService.wsdl"/>
+</catalog>
+
+

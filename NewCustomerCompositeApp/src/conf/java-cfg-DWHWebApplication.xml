@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<javaee-project xmlns="http://java.sun.com/xml/ns/jbi/javaee/config/1/" xmlns:ns0="http://ws/" name="DWHWebApplication">
+    <services>
+        <provides enable-for-javaee-http="true" endpoint-name="javaee_DWHWebServicePort" interface-name="ns0:DWHWebService" service-name="ns0:DWHWebServiceService"/>
+    </services>
+</javaee-project>
